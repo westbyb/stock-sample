@@ -24,6 +24,7 @@ class Search extends React.Component {
         <input
           type="text"
           placeholder="Stock Symbol"
+          defaultValue="NKE"
           ref={(node) => this.input = node}
           id="searchInput"
         />
