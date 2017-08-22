@@ -10,6 +10,11 @@ export function searchStocks(symbol) {
         statusText: 'You must enter a stock symbol.'
       }));
       return;
+    } else if (symbol.length > 5) {
+      dispatch(searchStocksFailure({
+        statusText: 'Stock symbols are less than 5 characters.'
+      }));
+      return;
     }
     const gUrl = 'https://www.google.com/finance/info?q=NSE:' + symbol;
     ajax(gUrl, {
