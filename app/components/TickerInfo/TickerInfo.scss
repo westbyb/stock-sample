@@ -1,0 +1,14 @@
+#ticker {
+  border: 1px solid #000;
+  border-radius: 4px;
+  margin-top: 1em;
+  max-width: 350px;
+
+  .pos {
+    color: green;
+  }
+
+  .neg {
+    color: red;
+  }
+}

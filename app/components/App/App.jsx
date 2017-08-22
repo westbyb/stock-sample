@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import Search from '../Search/Search.jsx';
+import TickerInfo from '../TickerInfo/TickerInfo.jsx';
 
 import './App.scss';
 
@@ -18,6 +19,11 @@ class App extends React.Component {
       <div id="app">
         App
         <Search dispatch={this.props.dispatch}/>
+        {
+          _.isObject(this.props.stockInfo) ?
+          <TickerInfo stock={this.props.stockInfo} /> :
+          null
+        }
       </div>
     )
   }
