@@ -2,8 +2,6 @@ import {ajax} from 'jquery';
 
 import * as types from './constants.js';
 
-const API_KEY = '2ZSHKUITFR0KRZ0P';
-
 export function searchStocks(symbol) {
   return function(dispatch) {
     dispatch({type: types.SEARCH_STOCK});
