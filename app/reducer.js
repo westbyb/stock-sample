@@ -8,11 +8,19 @@ const defaults = {
 const SiteReducer = (state = defaults, action) => {
   switch (action.type) {
     case types.SEARCH_STOCK:
-      return state;
+      return {
+        ...state,
+        error: undefined
+      };
     case types.SEARCH_STOCK_SUCCESS:
       return {
         ...state,
         stockInfo: action.payload
+      };
+    case types.SEARCH_STOCK_FAILURE:
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       break;

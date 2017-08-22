@@ -7,16 +7,20 @@ const API_KEY = '2ZSHKUITFR0KRZ0P';
 export function searchStocks(symbol) {
   return function(dispatch) {
     dispatch({type: types.SEARCH_STOCK});
-    const url = 'https://www.alphavantage.co/query?function=SMA&symbol=' + symbol + '&interval=1min&time_period=10&series_type=close&datatype=json&apikey=' + API_KEY;
-    // fetch(url)
-    const gUrl = 'https://www.google.com/finance/info?q=NSE:NKE';
+    if (_.isEmpty(symbol)) {
+      dispatch(searchStocksFailure({
+        statusText: 'You must enter a stock symbol.'
+      }));
+      return;
+    }
+    const gUrl = 'https://www.google.com/finance/info?q=NSE:' + symbol;
     ajax(gUrl, {
       dataType: 'jsonp'
     })
     .then((response) => {
       dispatch(searchStocksSuccess(response[0]));
     })
-    .catch((error) => {
+    .fail((error) => {
       dispatch(searchStocksFailure(error));
     });
   };

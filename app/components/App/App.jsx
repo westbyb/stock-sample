@@ -17,11 +17,15 @@ class App extends React.Component {
   render() {
     return (
       <div id="app">
-        App
         <Search dispatch={this.props.dispatch}/>
         {
           _.isObject(this.props.stockInfo) ?
           <TickerInfo stock={this.props.stockInfo} /> :
+          null
+        }
+        {
+          _.isObject(this.props.error) ? 
+          <small className="error">{this.props.error.statusText}</small> :
           null
         }
       </div>

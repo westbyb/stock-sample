@@ -3,12 +3,26 @@
   border-radius: 4px;
   margin-top: 1em;
   max-width: 350px;
+  padding: 6px;
+
+  .date {
+    display: block;
+  }
+
+  .neg {
+    color: red;
+  }
 
   .pos {
     color: green;
   }
 
-  .neg {
-    color: red;
+  .price {
+    display: inline-block;
+    margin-right: 4px;
+  }
+
+  .symbol {
+    margin-bottom: 0.25em;
   }
 }
