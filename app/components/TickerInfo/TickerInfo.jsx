@@ -19,7 +19,7 @@ class TickerInfo extends React.Component {
         </h5>
         <small className="date">NYSE: {this.props.stock.elt}</small>
         <h6 className="price">${this.props.stock.l_cur}</h6>
-        <small className={delta >= 0 ? 'pos' : 'neg'}>${delta} ({this.props.stock.cp}%)</small>
+        <small className={'delta ' + ((delta >= 0) ? 'pos' : 'neg')}>${delta} ({this.props.stock.cp}%)</small>
       </div>
     );
   }
