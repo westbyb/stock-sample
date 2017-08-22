@@ -1,11 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './TickerInfo.scss';
 
+/**
+ * Component used to display stock information
+ *
+ * @param {Object} stock Stock information object
+ */
 class TickerInfo extends React.Component {
-  /**
-   * In a better world, we've designed this API and it doesn't return poorly named variables
-   */
+  // In a better world, we've designed this API and it doesn't return poorly named variables
   render() {
     let delta = Number(this.props.stock.c);
     return (
@@ -20,5 +24,9 @@ class TickerInfo extends React.Component {
     );
   }
 }
+
+TickerInfo.propTypes = {
+  stock: PropTypes.object
+};
 
 export default TickerInfo;
